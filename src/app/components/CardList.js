@@ -5,17 +5,18 @@ import Cards from "./Cards";
     export default function CardList() {
 
         const [cards, setCards] = useState([]) // Se usaron los hooks useState  y useEffect para monitoriar el estado del componente y checar cuando se cambia la informacion de las card.
-        useEffect( () => {
+        useEffect( () => { // Actualiza la información de las cards ejecutando la funcion getCard();
             getCard();
         },
         []);
 
         const getCard = async() => { //Esta es la función getCard donde obtenemos la información mediante la API de Yu Gi Oh.
-            const url = `https://db.ygoprodeck.com/api/v7/cardinfo.php/?&num=50&offset=0&view=List`;
-            const resp = await fetch(url);
-            const {data} = await resp.json();
+            const url = `https://db.ygoprodeck.com/api/v7/cardinfo.php/?&num=50&offset=0&view=List`; // Se almacena la url del API en variable const url
+            const resp = await fetch(url); // Se obtiene la petición de url y se almacena en variable constante resp
+            const {data} = await resp.json(); // 
 
             const tarjets = data.map(card => ({ //Aqui se optiene los datos requeridos de las card de la API usando un objeto, usando .map() para iterar sobre el json de la API 
+                //Obteniendo datos pedidos en los requerimientos
                 key: card.id,
                 img: card.card_images[0].image_url,
                 title: card.name,
@@ -24,11 +25,11 @@ import Cards from "./Cards";
                 price: card.card_prices[0].tcgplayer_price
             }));
         
-           setCards(tarjets);
+           setCards(tarjets); // Cambia el estado de las cards cuando itera sobre el arreglo
         }
 
     return (
-        <div className="row m-5">
+        <div className="row m-5"> 
             {cards.map(card => { // Se manda cada dato requerido de la API mediante props al componente Cards donde tenemos maquetado la tarjeta y se muentre en la pagina. 
                 return (
                     <Cards 
@@ -42,7 +43,7 @@ import Cards from "./Cards";
                     
                 )
             })}
-            
+               
         </div>
         
     );
