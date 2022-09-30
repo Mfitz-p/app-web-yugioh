@@ -5,9 +5,9 @@ import ListGroup from 'react-bootstrap/ListGroup';
 function Cards(props) { // Se recibe las props mandadas del componente CardList
   return (
     // Usando react-bootstrap se maqueto la card para renderizar la imagen, el nombre, tipo, descripcion y el precio. 
-          <Card className='m-2' border='danger' style={{ width: '18rem' }}>
+          <Card className='m-2' border='danger' style={{ width: '20rem'}}>
             <Card.Img 
-           className='mt-2' variant="top" src={props.img} /> {/*Se recibe prop llamada img para renderizar la imagen de la tarjeta*/}
+           className='mt-2' variant="top" src={props.img} style={{height: '22rem'}} /> {/*Se recibe prop llamada img para renderizar la imagen de la tarjeta*/}
             <Card.Body>
               <Card.Title>{props.title}</Card.Title> {/*Se recibe prop llamada title para renderizar el nombre de la tarjeta*/}
               <Card.Text> {/*Se recibe prop llamada desc para renderizar la descripcion de la tarjeta*/}

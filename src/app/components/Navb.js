@@ -6,7 +6,7 @@ function Navb() {
   return (
     <Navbar bg='danger' expand="lg" variant='dark'>
       <Container>
-        <Navbar.Brand href="#home">Yu Gi Oh - Cards</Navbar.Brand>
+        <Navbar.Brand href="./components/CardList.js">Yu Gi Oh - Cards</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
       </Container>
     </Navbar>
